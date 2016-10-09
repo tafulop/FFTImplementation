@@ -14,6 +14,6 @@ public:
 	~DataGenerator();
 
 
-	static void generateSinus(vector<double>* target, double amplitude, double omega = 1);
+	static void generateSinus(vector<double>* target, double amplitude, double omega = 1, bool additive = false);
 };
 

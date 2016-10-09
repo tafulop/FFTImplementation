@@ -13,7 +13,8 @@ DataGenerator::~DataGenerator()
 
 void DataGenerator::generateSinus(vector<double>* target, 
 									double amplitude, 
-									double omega) 
+									double omega,
+                                    bool additive) 
 {
 	
 	// input argument check
@@ -34,10 +35,20 @@ void DataGenerator::generateSinus(vector<double>* target,
 	int i = 1;
 	int size = target->size();
 
-	for (auto it = target->begin(); it != target->end(); ++it, ++i) 
-	{
-		*it = amplitude * sin(2 * 3.14 * i * omega / size);
-	}
+    if (additive)
+    {
+        for (auto it = target->begin(); it != target->end(); ++it, ++i)
+        {
+            *it += amplitude * sin(2 * 3.14 * i * omega / size);
+        }
+    }
+    else
+    {
+        for (auto it = target->begin(); it != target->end(); ++it, ++i)
+        {
+            *it = amplitude * sin(2 * 3.14 * i * omega / size);
+        }
+    }
 
 	std::cout << "Target populated.\n";
 }
