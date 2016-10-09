@@ -14,7 +14,7 @@ int main()
 {
 	vector<double>* data = new vector<double>(size_t(1024));
 
-	DataGenerator::generateSinus(data, 1);
+	DataGenerator::generateSinus(data, 1, 2);
 
 	return 0;
 

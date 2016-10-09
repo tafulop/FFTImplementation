@@ -13,11 +13,11 @@ DataGenerator::~DataGenerator()
 
 void DataGenerator::generateSinus(vector<double>* target, 
 									double amplitude, 
-									double freq_multiplier) 
+									double omega) 
 {
 	
 	// input argument check
-	if (target == NULL || amplitude <= 0 || freq_multiplier < 0)
+	if (target == NULL || amplitude <= 0 || omega < 0)
 	{
 		std::cout << "Invalid parameter(s) for generateSinus() function. \n";
 	}
@@ -36,7 +36,7 @@ void DataGenerator::generateSinus(vector<double>* target,
 
 	for (auto it = target->begin(); it != target->end(); ++it, ++i) 
 	{
-		*it = sin(2 * 3.14 * i / size);
+		*it = amplitude * sin(2 * 3.14 * i * omega / size);
 	}
 
 	std::cout << "Target populated.\n";
