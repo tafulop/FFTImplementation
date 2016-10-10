@@ -2,8 +2,8 @@
 #include "DataContainer.h"
 
 
-DataContainer::DataContainer(vector<double> td_data) 
-	: m_td_data(td_data)
+DataContainer::DataContainer(size_t size)
+	: m_td_data(new std::vector<double>(size))
 {
 
 }
@@ -11,4 +11,19 @@ DataContainer::DataContainer(vector<double> td_data)
 
 DataContainer::~DataContainer()
 {
+}
+
+
+void DataContainer::print_to_file(const string& filename)
+{
+    ofstream file;
+    file.open(filename);
+    int i = 1;
+    
+    for (auto it = m_td_data->begin(); it != m_td_data->end(); ++it)
+    {
+        file << i++ << "\t" << (*it) << "\n";
+    }
+
+    file.close();
 }

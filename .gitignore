@@ -243,3 +243,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/FFTImplementation/sinus_3.txt
+/FFTImplementation/sinus_2.txt
+/FFTImplementation/sinus_1.txt

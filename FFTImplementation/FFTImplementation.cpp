@@ -4,20 +4,26 @@
 #include "stdafx.h"
 #include <vector>
 #include "DataGenerator.h"
+#include "DataContainer.h"
 
 using namespace std;
 
-
-
-
 int main()
 {
-	vector<double>* data = new vector<double>(size_t(1024));
+    DataContainer data(1024);
 
-	DataGenerator::generateSinus(data, 1, 2);
+    // base
+	DataGenerator::generateSinus(data.m_td_data, 1);
+    data.print_to_file("sinus_1.txt");
+
+    // 2nd harmonic
+    DataGenerator::generateSinus(data.m_td_data, 0.8, 2, true);
+    data.print_to_file("sinus_2.txt");
+
+    // 3rd harmonic
+    DataGenerator::generateSinus(data.m_td_data, 0.5, 3, true);
+    data.print_to_file("sinus_3.txt");
 
 	return 0;
 
 }
-
-

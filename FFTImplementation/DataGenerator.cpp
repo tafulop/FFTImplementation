@@ -27,9 +27,9 @@ void DataGenerator::generateSinus(vector<double>* target,
 	//  the corresponding sinus wave value should be added. 
 	//  To achieve this, the following equasion is used:
 	//
-	//               2 * Pi * i * w        
-	//  f(i) =sin ( ---------------- ) * A
-	//                vector.size       
+	//                2 * Pi * i * w        
+	//  f(i) = sin ( ---------------- ) * A
+	//                 vector.size       
 	//
 
 	int i = 1;
@@ -39,7 +39,7 @@ void DataGenerator::generateSinus(vector<double>* target,
     {
         for (auto it = target->begin(); it != target->end(); ++it, ++i)
         {
-            *it += amplitude * sin(2 * 3.14 * i * omega / size);
+            (*it) += amplitude * sin(2 * 3.14 * i * omega / size);
         }
     }
     else
