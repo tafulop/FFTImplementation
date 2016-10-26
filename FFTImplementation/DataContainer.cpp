@@ -4,6 +4,7 @@
 
 DataContainer::DataContainer(size_t size)
 	: m_td_data(new std::vector<double>(size))
+    , m_spectrum(new std::map<int, double>())
 {
 
 }
@@ -11,6 +12,8 @@ DataContainer::DataContainer(size_t size)
 
 DataContainer::~DataContainer()
 {
+    delete m_td_data;
+    delete m_spectrum;
 }
 
 

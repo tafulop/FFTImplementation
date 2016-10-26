@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <map>
 #include <fstream>
 
 using namespace std;
@@ -13,6 +14,7 @@ public:
 	virtual ~DataContainer();
 
     vector<double>* m_td_data;
+    map<int, double>* m_spectrum;
 
     void print_to_file(const string& filename);
 
