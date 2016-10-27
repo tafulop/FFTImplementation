@@ -24,9 +24,9 @@ void FourierTransformator::DFT(DataContainer& data_container, int freq_limit)
     // *******************************************
     // Applied DFT equasion:
     //
-    //        N - 1
-    // X(k) =  sum ( x[n] * e ^ (-2 PI i k n / N)
-    //        n = 0
+    //          2    N - 1
+    // X(k) =  ---    sum ( x[n] * e ^ (-2 PI i k n / N)
+    //          N    n = 0
     // 
     // N : data length
     // n : data index
@@ -50,10 +50,9 @@ void FourierTransformator::DFT(DataContainer& data_container, int freq_limit)
             sum += (*it) * exp((-2 * 3.14 * freq_coefficient * n * imag / (double)data->size()));
         }
 
-        double absolute = (abs(sum) / data->size());
+        double absolute = 2 * (abs(sum) / data->size());
         spectrum->emplace(freq_coefficient, absolute);
 
         cout << freq_coefficient << ". fequency coefficient = " << absolute << endl;
-
     }
 }
